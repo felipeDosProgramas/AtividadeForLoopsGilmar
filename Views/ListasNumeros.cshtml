@@ -1,0 +1,28 @@
+﻿@page
+@using Atividade10.Views
+@model Atividade10.Views.ListasNumeros
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+    <title>Listas de numeros</title>
+</head>
+<body>
+<ul>
+    @for (int i = 0;i != ListasNumeros.ListaNumerosParaExibir.Length ;i++)
+    {
+        <li>
+            @Html.DisplayFor(
+                (lista) => ListasNumeros.ListaNumerosParaExibir[i]
+            )
+        </li>
+    }
+</ul>
+
+</body>
+</html>
