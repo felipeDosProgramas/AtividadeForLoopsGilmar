@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
+﻿using Atividade10.Atividades;
+using Microsoft.AspNetCore.Mvc;
 namespace Atividade10.Controllers;
 public class ControllerGeral : Controller
 {
@@ -13,5 +13,26 @@ public class ControllerGeral : Controller
     public IActionResult Tabuada()
     {
         return View("/Views/Tabuada.cshtml");
+    }
+    [Route("/tabuada/{nro}")]
+    public string Tabuada(int nro)
+    {
+        return new CalculadoraTabuada(nro).ToString();
+    }
+    [Route("/receberNros")]
+    public IActionResult ReceberNrosPedidos()
+    {
+        return View("/Views/ImprimirNrosPedidos.cshtml");
+    }
+    [HttpGet("/exibirNros")]
+    public string ExibirNrosPedidos([FromQuery]string nums)
+    {
+        return new CalcularMaiorMenor(
+                nums
+                    .Split(' ')
+                    .Select(e => Convert.ToInt32(e))
+                    .ToArray()
+            )
+            .ToString();
     }
 }
