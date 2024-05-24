@@ -15,7 +15,6 @@ async function getTabuada(nro) {
 }
 dom.btnImprimir.onclick = async () => {
     const nro = dom.nro.value.trim();
-    console.log(nro)
     if (nro === "") return;
     const tabuada = await getTabuada(parseInt(nro));
     dom.tabuada.innerHTML = tabuada.replaceAll('>>><<<', '<br>')

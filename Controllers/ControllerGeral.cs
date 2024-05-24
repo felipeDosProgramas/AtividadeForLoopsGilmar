@@ -32,4 +32,17 @@ public class ControllerGeral : Controller
     [Route("/exibirListasNumeros")]
     public IActionResult ExibirListasNumeros()
         => View("/Views/ListasNumeros.cshtml");
+
+    [Route("/negativosParesEZeros")]
+    public IActionResult NegativosParesEZeros()
+        => View("/Views/NegativosParesEZeros.cshtml");
+
+    [HttpGet("/NegativosParesEZeros/{nums}")]
+    public string ApiNegativosParesEZeros(string nums)
+        => new ExibirNrosPedidos(nums
+                .Split(' ')
+                .Select(e => Convert.ToInt32(e))
+                .ToArray()
+            )
+            .ToString();
 }

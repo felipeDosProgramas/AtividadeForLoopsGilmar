@@ -8,4 +8,8 @@
         <PublishAot>true</PublishAot>
     </PropertyGroup>
 
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Components\NavViewComponent.razor" />
+    </ItemGroup>
+
 </Project>

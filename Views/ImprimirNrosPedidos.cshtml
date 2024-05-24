@@ -12,11 +12,24 @@
     <title>maior e menor</title>
 </head>
 <body>
+<a href="/">voltar</a><br>
 <label>
     escreva exatamente 20 números separados por espaços <br>
     <input type="text" name="numerosCrus" id="numerosCrus">
 </label>
 <p></p>
-<script defer src="/assets/scripts/ImprimirNrosPedidos.js"></script>
+<script defer src="/assets/scripts/ImprimirNrosPedidos.js" type="module"></script>
+<script type="module">
+    import {separarParaEnviarNumeros, recebeSaida} from "/assets/scripts/ImprimirNrosPedidos.js";
+    let input = document.getElementById('numerosCrus')
+    let paragrafo = document.querySelector('p');
+    input.oninput = async (ev) => {
+        let nums = separarParaEnviarNumeros(ev);
+        if (nums)
+            paragrafo.innerText = await recebeSaida(nums);
+    }
+
+
+</script>
 </body>
 </html>
