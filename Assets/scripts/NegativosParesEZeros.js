@@ -14,6 +14,8 @@ let timer = null;
 dom.input.oninput = (ev) => {
     clearTimeout(timer)
     timer = setTimeout(async () => {
+        if (ev.target.value.trim().length === 0)
+            return;
         let server = await fetch(`/NegativosParesEZeros/${
             sanitizaEFiltraEntrada(ev.target.value.trim()) 
                 .join("%20")

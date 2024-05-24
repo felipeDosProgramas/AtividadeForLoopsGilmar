@@ -7,7 +7,7 @@ export function sanitizaEFiltraEntrada(entradaCrua) {
         .split(" ")
         .map(str => str.trim())
         .filter(str => str.length !== 0)
-        .filter(str => str.match(/^\d+$/));
+        .filter(str => str.match(/^-?\d+$/));
 }
 
 /**
